@@ -36,6 +36,36 @@ class Dictionary
 
     public void RemoveNumber()
     {
+        string? name,rspnd;
+        int indx; 
+        Console.WriteLine("********************Remove Number**************************");
+        Console.Write("Enter the name or surname of the person you want to delete: ");
+        name=Console.ReadLine();
+        
+        while(true)
+        {
+            for(int i=0;i<People.Count;i++)
+            {
+                if(People[i].Name==name)
+                {
+                    Console.Write("Do you want delete {0} user (y/n): ",name);
+                    rspnd=Console.ReadLine();
+                    if(rspnd=="y"|| rspnd=="Y")
+                    {
+                        indx=People.IndexOf(People[i]);
+                        People.Remove(People[indx]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contact is not deleted");
+                    }
+
+                }
+
+            }
+
+            Console.Write("Do you want countiune");
+        }
 
     }
 
