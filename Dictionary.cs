@@ -37,12 +37,13 @@ class Dictionary
     public void RemoveNumber()
     {
         string? name,rspnd;
-        int indx; 
+        int indx,chs; 
+        bool dng=true;
         Console.WriteLine("********************Remove Number**************************");
         Console.Write("Enter the name or surname of the person you want to delete: ");
         name=Console.ReadLine();
         
-        while(true)
+        while(dng)
         {
             for(int i=0;i<People.Count;i++)
             {
@@ -52,8 +53,10 @@ class Dictionary
                     rspnd=Console.ReadLine();
                     if(rspnd=="y"|| rspnd=="Y")
                     {
+                        Console.WriteLine("The Contact is deleted.");
                         indx=People.IndexOf(People[i]);
                         People.Remove(People[indx]);
+                        Break;
                     }
                     else
                     {
@@ -61,10 +64,21 @@ class Dictionary
                     }
 
                 }
-
+                 else
+                 {
+                    Console.WriteLine("The contact is not found.");
+                    Console.WriteLine("Press one to contiune delete progress");
+                    Console.WriteLine("Press two to retrun menu");
+                    chs=int.Parse(Console.ReadLine());
+                    if(chs==2)
+                         dng=false;
+                 }
             }
 
-            Console.Write("Do you want countiune");
+            Console.Write("Do you want countiune ? Press One for yes or press Two for no.");
+            chs=int.Parse(Console.ReadLine());
+            if(chs==2)
+                 dng=false;
         }
 
     }
