@@ -52,7 +52,7 @@ class Dictionary
         
             for(int i=0;i<People.Count;i++)
             {
-                if(People[i].Name.ToLower()==name)
+                if(People[i].Name.ToLower()==name || People[i].Surname.ToLower()==name)
                 {
                     find=true;
                     Console.Write("Do you want delete {0} user (y/n): ",name);
